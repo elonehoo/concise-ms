@@ -121,3 +121,13 @@ test('work with verbose and unitCount options',()=>{
   expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {verbose: true, unitCount: 2})).toBe('1 year 154 days')
   expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {verbose: true, unitCount: 3})).toBe('1 year 154 days 6 hours')
 })
+
+test('work with verbose and secondsDecimalDigits options',()=>{
+  const fn = (milliseconds:number) => prettyMilliseconds(milliseconds, {verbose: true,secondsDecimalDigits: 4})
+
+  expect(fn(1000)).toBe('1 second')
+  expect(fn(1000 + 400)).toBe('1.4000 seconds')
+  expect(fn((1000 * 2) + 400)).toBe('2.4000 seconds')
+  expect(fn((1000 * 5) + 254)).toBe('5.2540 seconds')
+  expect(fn(33_333)).toBe('33.3330 seconds')
+})
