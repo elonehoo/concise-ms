@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "reporter":"vitest run --reporter json"
   },
   "devDependencies": {
     "@elonehoo/concise-ms": "workspace:*",

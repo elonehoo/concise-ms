@@ -12,6 +12,7 @@
     "typeCheck": "tsc --noEmit",
     "test": "pnpm -C test run test",
     "coverage": "pnpm -C test run coverage",
+    "reporter": "pnpm -C test run reporter",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },

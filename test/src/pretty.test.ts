@@ -39,3 +39,14 @@ test('have a unitCount option',()=>{
   expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {unitCount: 2})).toBe('1y 154d')
   expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {unitCount: 3})).toBe('1y 154d 6h')
 })
+
+test('have a secondsDecimalDigits option',()=>{
+  expect(prettyMilliseconds(10_000)).toBe('10s')
+  expect(prettyMilliseconds(33_333)).toBe('33.3s')
+  expect(prettyMilliseconds(999, {secondsDecimalDigits: 0})).toBe('999ms')
+  expect(prettyMilliseconds(1000, {secondsDecimalDigits: 0})).toBe('1s')
+  expect(prettyMilliseconds(1999, {secondsDecimalDigits: 0})).toBe('1s')
+  expect(prettyMilliseconds(2000, {secondsDecimalDigits: 0})).toBe('2s')
+  expect(prettyMilliseconds(33_333, {secondsDecimalDigits: 0})).toBe('33s')
+  expect(prettyMilliseconds(33_333, {secondsDecimalDigits: 4})).toBe('33.3330s')
+})
