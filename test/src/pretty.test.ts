@@ -154,3 +154,8 @@ test('compact option overrides unitCount option',()=>{
   expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {verbose: true, compact: true, unitCount: 2})).toBe('1 year')
   expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {verbose: true, compact: true, unitCount: 3})).toBe('1 year')
 })
+
+test('work with separateMilliseconds and formatSubMilliseconds options',()=>{
+  expect(prettyMilliseconds(1010.340_067, {separateMilliseconds: true,formatSubMilliseconds: true,})).toBe('1s 10ms 340µs 67ns')
+  expect(prettyMilliseconds((60 * 1000) + 34 + 0.000_005, {separateMilliseconds: true,formatSubMilliseconds: true,})).toBe('1m 34ms 5ns')
+})
