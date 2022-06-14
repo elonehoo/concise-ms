@@ -131,3 +131,13 @@ test('work with verbose and secondsDecimalDigits options',()=>{
   expect(fn((1000 * 5) + 254)).toBe('5.2540 seconds')
   expect(fn(33_333)).toBe('33.3330 seconds')
 })
+
+test('work with verbose and millisecondsDecimalDigits options',()=>{
+  const fn = (milliseconds:number) => prettyMilliseconds(milliseconds, {verbose: true,millisecondsDecimalDigits: 4})
+
+  expect(fn(1)).toBe('1.0000 millisecond')
+  expect(fn(1 + 0.4)).toBe('1.4000 milliseconds')
+  expect(fn((1 * 2) + 0.4)).toBe('2.4000 milliseconds')
+  expect(fn((1 * 5) + 0.254)).toBe('5.2540 milliseconds')
+  expect(fn(33.333)).toBe('33.3330 milliseconds')
+})
