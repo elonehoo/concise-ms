@@ -94,3 +94,21 @@ test('have a formatSubMilliseconds option',()=>{
   expect(prettyMilliseconds(0.123_456_789, {formatSubMilliseconds: true})).toBe('123µs 456ns')
   expect(prettyMilliseconds((60 * 60 * 1000) + (23 * 1000) + 433 + 0.123_456, {formatSubMilliseconds: true})).toBe('1h 23s 433ms 123µs 456ns')
 })
+
+test('work with verbose and compact options',()=>{
+  const fn = (milliseconds:number) => prettyMilliseconds(milliseconds, {verbose: true,compact: true})
+
+  expect(fn(1000)).toBe('1 second')
+  expect(fn(1000 + 400)).toBe('1 second')
+  expect(fn((1000 * 2) + 400)).toBe('2 seconds')
+  expect(fn(1000 * 5)).toBe('5 seconds')
+  expect(fn(1000 * 55)).toBe('55 seconds')
+  expect(fn(1000 * 67)).toBe('1 minute')
+  expect(fn(1000 * 60 * 5)).toBe('5 minutes')
+  expect(fn(1000 * 60 * 67)).toBe('1 hour')
+  expect(fn(1000 * 60 * 60 * 12)).toBe('12 hours')
+  expect(fn(1000 * 60 * 60 * 40)).toBe('1 day')
+  expect(fn(1000 * 60 * 60 * 999)).toBe('41 days')
+  expect(fn(1000 * 60 * 60 * 24 * 465)).toBe('1 year')
+  expect(fn(1000 * 60 * 60 * 24 * 750)).toBe('2 years')
+})
