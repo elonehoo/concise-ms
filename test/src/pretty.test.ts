@@ -29,3 +29,13 @@ test('have a compact option',()=>{
   expect(prettyMilliseconds(1000 * 60 * 60 * 24 * 465, {compact: true})).toBe('1y')
   expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {compact: true})).toBe('1y')
 })
+
+test('have a unitCount option',()=>{
+  expect(prettyMilliseconds(1000 * 60, {unitCount: 0})).toBe('1m')
+  expect(prettyMilliseconds(1000 * 60, {unitCount: 1})).toBe('1m')
+  expect(prettyMilliseconds(1000 * 60 * 67, {unitCount: 1})).toBe('1h')
+  expect(prettyMilliseconds(1000 * 60 * 67, {unitCount: 2})).toBe('1h 7m')
+  expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {unitCount: 1})).toBe('1y')
+  expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {unitCount: 2})).toBe('1y 154d')
+  expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {unitCount: 3})).toBe('1y 154d 6h')
+})
