@@ -2,10 +2,10 @@
   <img src="./public/logo.svg" width="100px" height="100px" />
 </div>
 
-<h1 align="center">Titem</h1>
+<h1 align="center">concise-ms</h1>
 
 <p align="center">
-  <em>Starter template for TypeScript library</em>
+  <em>Convert milliseconds to string: `1337000000` ➡️ `15d 11h 23m 20s`</em>
 </p>
 
 If you want a TypeScript package that is [like this](https://www.npmjs.com/search?q=%40titem), then this repository has everything you need.
