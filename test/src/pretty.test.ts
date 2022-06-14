@@ -87,3 +87,10 @@ test('have a separateMilliseconds option',()=>{
   expect(prettyMilliseconds(1100, {separateMilliseconds: false})).toBe('1.1s')
   expect(prettyMilliseconds(1100, {separateMilliseconds: true})).toBe('1s 100ms')
 })
+
+test('have a formatSubMilliseconds option',()=>{
+  expect(prettyMilliseconds(0.4, {formatSubMilliseconds: true})).toBe('400µs')
+  expect(prettyMilliseconds(0.123_571, {formatSubMilliseconds: true})).toBe('123µs 571ns')
+  expect(prettyMilliseconds(0.123_456_789, {formatSubMilliseconds: true})).toBe('123µs 456ns')
+  expect(prettyMilliseconds((60 * 60 * 1000) + (23 * 1000) + 433 + 0.123_456, {formatSubMilliseconds: true})).toBe('1h 23s 433ms 123µs 456ns')
+})
