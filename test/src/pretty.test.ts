@@ -141,3 +141,10 @@ test('work with verbose and millisecondsDecimalDigits options',()=>{
   expect(fn((1 * 5) + 0.254)).toBe('5.2540 milliseconds')
   expect(fn(33.333)).toBe('33.3330 milliseconds')
 })
+
+test('work with verbose and formatSubMilliseconds options',()=>{
+  expect(prettyMilliseconds(0.4, {formatSubMilliseconds: true, verbose: true})).toBe('400 microseconds')
+  expect(prettyMilliseconds(0.123_571, {formatSubMilliseconds: true,verbose: true,})).toBe('123 microseconds 571 nanoseconds')
+  expect(prettyMilliseconds(0.123_456_789, {formatSubMilliseconds: true,verbose: true,})).toBe('123 microseconds 456 nanoseconds')
+  expect(prettyMilliseconds(0.001, {formatSubMilliseconds: true, verbose: true})).toBe('1 microsecond')
+})
