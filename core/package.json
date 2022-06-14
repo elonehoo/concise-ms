@@ -1,0 +1,17 @@
+{
+  "name": "@elonehoo/concise-ms",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Starter template for TypeScript library",
+  "main": "./src/index.ts",
+  "author": "Elone Hoo <huchengyea@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && unbuild",
+    "stub": "unbuild --stub",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "unbuild": "^0.7.4"
+  }
+}
