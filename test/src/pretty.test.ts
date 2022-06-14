@@ -112,3 +112,12 @@ test('work with verbose and compact options',()=>{
   expect(fn(1000 * 60 * 60 * 24 * 465)).toBe('1 year')
   expect(fn(1000 * 60 * 60 * 24 * 750)).toBe('2 years')
 })
+
+test('work with verbose and unitCount options',()=>{
+  expect(prettyMilliseconds(1000 * 60, {verbose: true, unitCount: 1})).toBe('1 minute')
+  expect(prettyMilliseconds(1000 * 60 * 67, {verbose: true, unitCount: 1})).toBe('1 hour')
+  expect(prettyMilliseconds(1000 * 60 * 67, {verbose: true, unitCount: 2})).toBe('1 hour 7 minutes')
+  expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {verbose: true, unitCount: 1})).toBe('1 year')
+  expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {verbose: true, unitCount: 2})).toBe('1 year 154 days')
+  expect(prettyMilliseconds(1000 * 60 * 67 * 24 * 465, {verbose: true, unitCount: 3})).toBe('1 year 154 days 6 hours')
+})
