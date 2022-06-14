@@ -61,3 +61,29 @@ test('have a keepDecimalsOnWholeSeconds option',()=>{
   expect(prettyMilliseconds(1000 * 33, {secondsDecimalDigits: 2, keepDecimalsOnWholeSeconds: true})).toBe('33.00s')
   expect(prettyMilliseconds(1000 * 33.000_04, {secondsDecimalDigits: 2, keepDecimalsOnWholeSeconds: true})).toBe('33.00s')
 })
+
+test('have a verbose option',()=>{
+  const fn = (milliseconds:number) => prettyMilliseconds(milliseconds, {verbose: true});
+
+  expect(fn(0)).toBe('0 milliseconds')
+  expect(fn(0.1)).toBe('1 millisecond')
+  expect(fn(1)).toBe('1 millisecond')
+  expect(fn(1000)).toBe('1 second')
+  expect(fn(1000 + 400)).toBe('1.4 seconds')
+  expect(fn((1000 * 2) + 400)).toBe('2.4 seconds')
+  expect(fn(1000 * 5)).toBe('5 seconds')
+  expect(fn(1000 * 55)).toBe('55 seconds')
+  expect(fn(1000 * 67)).toBe('1 minute 7 seconds')
+  expect(fn(1000 * 60 * 5)).toBe('5 minutes')
+  expect(fn(1000 * 60 * 67)).toBe('1 hour 7 minutes')
+  expect(fn(1000 * 60 * 60 * 12)).toBe('12 hours')
+  expect(fn(1000 * 60 * 60 * 40)).toBe('1 day 16 hours')
+  expect(fn(1000 * 60 * 60 * 999)).toBe('41 days 15 hours')
+  expect(fn(1000 * 60 * 60 * 24 * 465)).toBe('1 year 100 days')
+  expect(fn(1000 * 60 * 67 * 24 * 465)).toBe('1 year 154 days 6 hours')
+})
+
+test('have a separateMilliseconds option',()=>{
+  expect(prettyMilliseconds(1100, {separateMilliseconds: false})).toBe('1.1s')
+  expect(prettyMilliseconds(1100, {separateMilliseconds: true})).toBe('1s 100ms')
+})
