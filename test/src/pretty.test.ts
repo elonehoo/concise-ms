@@ -56,3 +56,8 @@ test('have a millisecondsDecimalDigits option',()=>{
   expect(prettyMilliseconds(33.333, {millisecondsDecimalDigits: 0})).toBe('33ms')
   expect(prettyMilliseconds(33.333, {millisecondsDecimalDigits: 4})).toBe('33.3330ms')
 })
+
+test('have a keepDecimalsOnWholeSeconds option',()=>{
+  expect(prettyMilliseconds(1000 * 33, {secondsDecimalDigits: 2, keepDecimalsOnWholeSeconds: true})).toBe('33.00s')
+  expect(prettyMilliseconds(1000 * 33.000_04, {secondsDecimalDigits: 2, keepDecimalsOnWholeSeconds: true})).toBe('33.00s')
+})
