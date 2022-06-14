@@ -22,7 +22,6 @@ pnpm install @elonehoo/concise-ms
 ## usage
 
 ```
-
 ```typescript
 import { conciseMilliseconds } from '@elonehoo/concise-ms'
 
