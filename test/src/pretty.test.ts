@@ -159,3 +159,17 @@ test('work with separateMilliseconds and formatSubMilliseconds options',()=>{
   expect(prettyMilliseconds(1010.340_067, {separateMilliseconds: true,formatSubMilliseconds: true,})).toBe('1s 10ms 340µs 67ns')
   expect(prettyMilliseconds((60 * 1000) + 34 + 0.000_005, {separateMilliseconds: true,formatSubMilliseconds: true,})).toBe('1m 34ms 5ns')
 })
+
+test('properly rounds milliseconds with secondsDecimalDigits',()=>{
+  const fn = (milliseconds:number) =>prettyMilliseconds(milliseconds, {verbose: true,secondsDecimalDigits: 0,})
+  expect(fn(3 * 60 * 1000)).toBe('3 minutes')
+  expect(fn((3 * 60 * 1000) - 1)).toBe('2 minutes 59 seconds')
+  expect(fn(365 * 24 * 3600 * 1e3)).toBe('1 year')
+  expect(fn((365 * 24 * 3600 * 1e3) - 1)).toBe('364 days 23 hours 59 minutes 59 seconds')
+  expect(fn(24 * 3600 * 1e3)).toBe('1 day')
+  expect(fn((24 * 3600 * 1e3) - 1)).toBe('23 hours 59 minutes 59 seconds')
+  expect(fn(3600 * 1e3)).toBe('1 hour')
+  expect(fn((3600 * 1e3) - 1)).toBe('59 minutes 59 seconds')
+  expect(fn(2 * 3600 * 1e3)).toBe('2 hours')
+  expect(fn((2 * 3600 * 1e3) - 1)).toBe('1 hour 59 minutes 59 seconds')
+})
