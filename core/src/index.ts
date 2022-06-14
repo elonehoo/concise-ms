@@ -1,4 +1,4 @@
 import parseMilliseconds from './parse'
-import prettyMilliseconds from './pretty'
+import conciseMilliseconds from './pretty'
 
-export {parseMilliseconds,prettyMilliseconds}
+export {parseMilliseconds,conciseMilliseconds}

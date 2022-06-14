@@ -73,7 +73,7 @@ export interface Options{
  * Convert milliseconds to a human readable string: `1337000000` → `15d 11h 23m 20s`.
  * @param milliseconds Milliseconds to humanize.
  */
-export default function prettyMilliseconds(milliseconds: number,options?: Options): string{
+export default function conciseMilliseconds(milliseconds: number,options?: Options): string{
   if (!Number.isFinite(milliseconds)) {
 		throw new TypeError('Expected a finite number');
 	}

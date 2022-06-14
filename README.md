@@ -8,26 +8,42 @@
   <em>Convert milliseconds to string: `1337000000` ➡️ `15d 11h 23m 20s`</em>
 </p>
 
-If you want a TypeScript package that is [like this](https://www.npmjs.com/search?q=%40titem), then this repository has everything you need.
-
-## Features
-
-- ⚡️ [Vite 2](https://github.com/vitejs/vite), [pnpm](https://github.com/pnpm/pnpm) - born with fastness
-
-- ✅ Use [Vitest](https://github.com/vitest-dev/vitest) for unit and components testings
-
-- 🦾 TypeScript, of course
-
-## Try it now!
-
-[Create a repo from this template on GitHub](https://github.com/elonehoo/titem/generate).
-
-### Clone to local
-
-If you prefer to do it manually with the cleaner git history
+## install
 
 ```bash
-npx degit elonehoo/titem my-titem-app
-cd my-titem-app
-pnpm install # If you don't have pnpm installed, run: npm install -g pnpm
+# npm
+npm install @elonehoo/concise-ms
+#yarn
+yarn add @elonehoo/concise-ms
+#pnpm
+pnpm install @elonehoo/concise-ms
+```
+
+## usage
+
+```
+
+```typescript
+import { conciseMilliseconds } from '@elonehoo/concise-ms'
+
+conciseMilliseconds(1337000000) //=> '15d 11h 23m 20s'
+
+conciseMilliseconds(1337)//=> '1.3s'
+
+conciseMilliseconds(133)//=> '133ms'
+
+// `compact` option
+conciseMilliseconds(1337, {compact: true})//=> '1s'
+
+// `verbose` option
+conciseMilliseconds(1335669000, {verbose: true})//=> '15 days 11 hours 1 minute 9 seconds'
+
+// `colonNotation` option
+conciseMilliseconds(95500, {colonNotation: true})//=> '1:35.5'
+
+// `formatSubMilliseconds` option
+conciseMilliseconds(100.400080, {formatSubMilliseconds: true})//=> '100ms 400µs 80ns'
+
+// Can be useful for time durations
+conciseMilliseconds(new Date(2014, 0, 1, 10, 40) - new Date(2014, 0, 1, 10, 5))//=> '35m'
 ```
