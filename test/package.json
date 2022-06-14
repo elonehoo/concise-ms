@@ -1,0 +1,16 @@
+{
+  "name": "@elonehoo/test",
+  "version": "0.0.0",
+  "private":"true",
+  "type": "module",
+  "description": "Starter template for TypeScript library",
+  "author": "Elone Hoo <huchengyea@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^0.14.2",
+    "@elonehoo/concise-ms":"workspace:*"
+  }
+}
