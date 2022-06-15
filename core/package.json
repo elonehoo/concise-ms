@@ -1,6 +1,6 @@
 {
   "name": "@elonehoo/concise-ms",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "understandable milliseconds",
   "main": "./src/index.ts",
@@ -14,7 +14,10 @@
   "bugs": {
     "url": "https://github.com/elonehoo/concise-ms/issues"
   },
-  "keywords": ["concise","ms"],
+  "keywords": [
+    "concise",
+    "ms"
+  ],
   "scripts": {
     "build": "rimraf dist && unbuild",
     "stub": "unbuild --stub",
