@@ -8,6 +8,12 @@
   <em>Convert milliseconds to string: `1337000000` ➡️ `15d 11h 23m 20s`</em>
 </p>
 
+<p align="center">
+  <a href="https://www.npmjs.com/package/@elonehoo/concise-ms">
+    <img src="https://img.shields.io/npm/v/@elonehoo/concise-ms?color=81A2BE&label=" />
+  </a>
+</p>
+
 ## install
 
 ```bash
