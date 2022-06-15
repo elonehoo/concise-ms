@@ -2,16 +2,26 @@
   "name": "@elonehoo/concise-ms",
   "version": "0.0.1",
   "type": "module",
-  "description": "Starter template for TypeScript library",
+  "description": "understandable milliseconds",
   "main": "./src/index.ts",
   "author": "Elone Hoo <huchengyea@163.com>",
   "license": "MIT",
+  "homepage": "https://concise-ms.elonehoo.xyz",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elonehoo/concise-ms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elonehoo/concise-ms/issues"
+  },
+  "keywords": ["concise","ms"],
   "scripts": {
     "build": "rimraf dist && unbuild",
     "stub": "unbuild --stub",
     "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
+    "rimraf": "^3.0.2",
     "unbuild": "^0.7.4"
   }
 }

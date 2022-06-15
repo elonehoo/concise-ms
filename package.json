@@ -1,7 +1,7 @@
 {
   "name": "@elonehoo/monorepo",
   "private": "true",
-  "description": "Starter template for TypeScript library",
+  "description": "understandable milliseconds",
   "author": "Elone Hoo <huchengyea@163.com>",
   "type": "module",
   "license": "MIT",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@elonehoo/eslint-config": "^2.0.0",
-    "@types/node": "^17.0.42",
+    "@types/node": "^17.0.43",
     "bumpp": "^7.1.1",
     "eslint": "^8.17.0",
     "pnpm": "^7.2.1",
