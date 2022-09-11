@@ -34,10 +34,10 @@ importers:
 
   docs:
     specifiers:
-      vitepress: 1.0.0-alpha.10
+      vitepress: 1.0.0-alpha.13
       vue: 3.2.39
     dependencies:
-      vitepress: 1.0.0-alpha.10
+      vitepress: 1.0.0-alpha.13
       vue: 3.2.39
 
   test:
@@ -4257,8 +4257,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/1.0.0-alpha.10:
-    resolution: {integrity: sha512-RGPU+YApj2jaYplAIJUe+2qlDks9FzPX1QGK+7NdGByeCCVZg6z9eYWjjvfvA/sgCtG3yeJE/4/jCwlv4Y8bVw==}
+  /vitepress/1.0.0-alpha.13:
+    resolution: {integrity: sha512-gCbKb+6o0g5wHt2yyqBPk7FcvrB+MfwGtg1JMS5p99GTQR87l3b7symCl8o1ecv7MDXwJ2mPB8ZrYNLnQAJxLQ==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.2.1
