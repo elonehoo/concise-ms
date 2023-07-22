@@ -1,6 +1,6 @@
 {
   "name": "@elonehoo/concise-ms",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "understandable milliseconds",
   "license": "MIT",
   "author": "Elone Hoo <hi@elonehoo.me>",
