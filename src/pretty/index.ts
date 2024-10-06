@@ -4,7 +4,7 @@ const pluralize: any = (word: any, count: any) => count === 1 ? word : `${word}s
 
 const SECOND_ROUNDING_EPSILON = 0.000_000_1
 
-export interface Options{
+export interface Options {
   /**
    * Number of digits to appear after the seconds decimal point.
    * @default 1

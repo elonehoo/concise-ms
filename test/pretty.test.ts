@@ -1,7 +1,7 @@
-import { expect, test } from 'vitest'
+import { expect, it } from 'vitest'
 import { conciseMilliseconds } from '../src'
 
-test('prettify milliseconds', () => {
+it('prettify milliseconds', () => {
   expect(conciseMilliseconds(0)).toBe('0ms')
   expect(conciseMilliseconds(0.1)).toBe('1ms')
   expect(conciseMilliseconds(1)).toBe('1ms')
@@ -22,14 +22,14 @@ test('prettify milliseconds', () => {
   expect(conciseMilliseconds(120_000)).toBe('2m')
 })
 
-test('have a compact option', () => {
+it('have a compact option', () => {
   expect(conciseMilliseconds(1000 + 4, { compact: true })).toBe('1s')
   expect(conciseMilliseconds(1000 * 60 * 60 * 999, { compact: true })).toBe('41d')
   expect(conciseMilliseconds(1000 * 60 * 60 * 24 * 465, { compact: true })).toBe('1y')
   expect(conciseMilliseconds(1000 * 60 * 67 * 24 * 465, { compact: true })).toBe('1y')
 })
 
-test('have a unitCount option', () => {
+it('have a unitCount option', () => {
   expect(conciseMilliseconds(1000 * 60, { unitCount: 0 })).toBe('1m')
   expect(conciseMilliseconds(1000 * 60, { unitCount: 1 })).toBe('1m')
   expect(conciseMilliseconds(1000 * 60 * 67, { unitCount: 1 })).toBe('1h')
@@ -39,7 +39,7 @@ test('have a unitCount option', () => {
   expect(conciseMilliseconds(1000 * 60 * 67 * 24 * 465, { unitCount: 3 })).toBe('1y 154d 6h')
 })
 
-test('have a secondsDecimalDigits option', () => {
+it('have a secondsDecimalDigits option', () => {
   expect(conciseMilliseconds(10_000)).toBe('10s')
   expect(conciseMilliseconds(33_333)).toBe('33.3s')
   expect(conciseMilliseconds(999, { secondsDecimalDigits: 0 })).toBe('999ms')
@@ -50,18 +50,18 @@ test('have a secondsDecimalDigits option', () => {
   expect(conciseMilliseconds(33_333, { secondsDecimalDigits: 4 })).toBe('33.3330s')
 })
 
-test('have a millisecondsDecimalDigits option', () => {
+it('have a millisecondsDecimalDigits option', () => {
   expect(conciseMilliseconds(33.333)).toBe('33ms')
   expect(conciseMilliseconds(33.333, { millisecondsDecimalDigits: 0 })).toBe('33ms')
   expect(conciseMilliseconds(33.333, { millisecondsDecimalDigits: 4 })).toBe('33.3330ms')
 })
 
-test('have a keepDecimalsOnWholeSeconds option', () => {
+it('have a keepDecimalsOnWholeSeconds option', () => {
   expect(conciseMilliseconds(1000 * 33, { secondsDecimalDigits: 2, keepDecimalsOnWholeSeconds: true })).toBe('33.00s')
   expect(conciseMilliseconds(1000 * 33.000_04, { secondsDecimalDigits: 2, keepDecimalsOnWholeSeconds: true })).toBe('33.00s')
 })
 
-test('have a verbose option', () => {
+it('have a verbose option', () => {
   const fn = (milliseconds: number) => conciseMilliseconds(milliseconds, { verbose: true })
 
   expect(fn(0)).toBe('0 milliseconds')
@@ -82,19 +82,19 @@ test('have a verbose option', () => {
   expect(fn(1000 * 60 * 67 * 24 * 465)).toBe('1 year 154 days 6 hours')
 })
 
-test('have a separateMilliseconds option', () => {
+it('have a separateMilliseconds option', () => {
   expect(conciseMilliseconds(1100, { separateMilliseconds: false })).toBe('1.1s')
   expect(conciseMilliseconds(1100, { separateMilliseconds: true })).toBe('1s 100ms')
 })
 
-test('have a formatSubMilliseconds option', () => {
+it('have a formatSubMilliseconds option', () => {
   expect(conciseMilliseconds(0.4, { formatSubMilliseconds: true })).toBe('400µs')
   expect(conciseMilliseconds(0.123_571, { formatSubMilliseconds: true })).toBe('123µs 571ns')
   expect(conciseMilliseconds(0.123_456_789, { formatSubMilliseconds: true })).toBe('123µs 456ns')
   expect(conciseMilliseconds((60 * 60 * 1000) + (23 * 1000) + 433 + 0.123_456, { formatSubMilliseconds: true })).toBe('1h 23s 433ms 123µs 456ns')
 })
 
-test('work with verbose and compact options', () => {
+it('work with verbose and compact options', () => {
   const fn = (milliseconds: number) => conciseMilliseconds(milliseconds, { verbose: true, compact: true })
 
   expect(fn(1000)).toBe('1 second')
@@ -112,7 +112,7 @@ test('work with verbose and compact options', () => {
   expect(fn(1000 * 60 * 60 * 24 * 750)).toBe('2 years')
 })
 
-test('work with verbose and unitCount options', () => {
+it('work with verbose and unitCount options', () => {
   expect(conciseMilliseconds(1000 * 60, { verbose: true, unitCount: 1 })).toBe('1 minute')
   expect(conciseMilliseconds(1000 * 60 * 67, { verbose: true, unitCount: 1 })).toBe('1 hour')
   expect(conciseMilliseconds(1000 * 60 * 67, { verbose: true, unitCount: 2 })).toBe('1 hour 7 minutes')
@@ -121,7 +121,7 @@ test('work with verbose and unitCount options', () => {
   expect(conciseMilliseconds(1000 * 60 * 67 * 24 * 465, { verbose: true, unitCount: 3 })).toBe('1 year 154 days 6 hours')
 })
 
-test('work with verbose and secondsDecimalDigits options', () => {
+it('work with verbose and secondsDecimalDigits options', () => {
   const fn = (milliseconds: number) => conciseMilliseconds(milliseconds, { verbose: true, secondsDecimalDigits: 4 })
 
   expect(fn(1000)).toBe('1 second')
@@ -131,7 +131,7 @@ test('work with verbose and secondsDecimalDigits options', () => {
   expect(fn(33_333)).toBe('33.3330 seconds')
 })
 
-test('work with verbose and millisecondsDecimalDigits options', () => {
+it('work with verbose and millisecondsDecimalDigits options', () => {
   const fn = (milliseconds: number) => conciseMilliseconds(milliseconds, { verbose: true, millisecondsDecimalDigits: 4 })
 
   expect(fn(1)).toBe('1.0000 millisecond')
@@ -141,25 +141,25 @@ test('work with verbose and millisecondsDecimalDigits options', () => {
   expect(fn(33.333)).toBe('33.3330 milliseconds')
 })
 
-test('work with verbose and formatSubMilliseconds options', () => {
+it('work with verbose and formatSubMilliseconds options', () => {
   expect(conciseMilliseconds(0.4, { formatSubMilliseconds: true, verbose: true })).toBe('400 microseconds')
   expect(conciseMilliseconds(0.123_571, { formatSubMilliseconds: true, verbose: true })).toBe('123 microseconds 571 nanoseconds')
   expect(conciseMilliseconds(0.123_456_789, { formatSubMilliseconds: true, verbose: true })).toBe('123 microseconds 456 nanoseconds')
   expect(conciseMilliseconds(0.001, { formatSubMilliseconds: true, verbose: true })).toBe('1 microsecond')
 })
 
-test('compact option overrides unitCount option', () => {
+it('compact option overrides unitCount option', () => {
   expect(conciseMilliseconds(1000 * 60 * 67 * 24 * 465, { verbose: true, compact: true, unitCount: 1 })).toBe('1 year')
   expect(conciseMilliseconds(1000 * 60 * 67 * 24 * 465, { verbose: true, compact: true, unitCount: 2 })).toBe('1 year')
   expect(conciseMilliseconds(1000 * 60 * 67 * 24 * 465, { verbose: true, compact: true, unitCount: 3 })).toBe('1 year')
 })
 
-test('work with separateMilliseconds and formatSubMilliseconds options', () => {
+it('work with separateMilliseconds and formatSubMilliseconds options', () => {
   expect(conciseMilliseconds(1010.340_067, { separateMilliseconds: true, formatSubMilliseconds: true })).toBe('1s 10ms 340µs 67ns')
   expect(conciseMilliseconds((60 * 1000) + 34 + 0.000_005, { separateMilliseconds: true, formatSubMilliseconds: true })).toBe('1m 34ms 5ns')
 })
 
-test('properly rounds milliseconds with secondsDecimalDigits', () => {
+it('properly rounds milliseconds with secondsDecimalDigits', () => {
   const fn = (milliseconds: number) => conciseMilliseconds(milliseconds, { verbose: true, secondsDecimalDigits: 0 })
   expect(fn(3 * 60 * 1000)).toBe('3 minutes')
   expect(fn((3 * 60 * 1000) - 1)).toBe('2 minutes 59 seconds')
@@ -173,7 +173,7 @@ test('properly rounds milliseconds with secondsDecimalDigits', () => {
   expect(fn((2 * 3600 * 1e3) - 1)).toBe('1 hour 59 minutes 59 seconds')
 })
 
-test('`colonNotation` option', () => {
+it('`colonNotation` option', () => {
   expect(conciseMilliseconds(1000, { colonNotation: true })).toBe('0:01')
   expect(conciseMilliseconds(1543, { colonNotation: true })).toBe('0:01.5')
   expect(conciseMilliseconds(1000 * 60, { colonNotation: true })).toBe('1:00')
