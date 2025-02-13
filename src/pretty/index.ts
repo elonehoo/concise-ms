@@ -140,8 +140,8 @@ export default function conciseMilliseconds(milliseconds: number, options?: Opti
     else {
       const millisecondsAndBelow
         = parsed.milliseconds
-        + (parsed.microseconds / 1000)
-        + (parsed.nanoseconds / 1e6)
+          + (parsed.microseconds / 1000)
+          + (parsed.nanoseconds / 1e6)
 
       const millisecondsDecimalDigits
         = typeof options?.millisecondsDecimalDigits === 'number'
