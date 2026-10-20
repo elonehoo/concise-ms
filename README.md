@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/logo.svg" width="100px" height="100px" />
+  <img alt="concise-ms logo" src="./public/logo.svg" width="100px" height="100px" />
 </div>
 
 <h1 align="center">concise-ms</h1>
@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@elonehoo/concise-ms">
-    <img src="https://img.shields.io/npm/v/@elonehoo/concise-ms?color=81A2BE&label=" />
+    <img alt="npm package version" src="https://img.shields.io/npm/v/@elonehoo/concise-ms?color=81A2BE&label=" />
   </a>
 </p>
 
