@@ -3,6 +3,7 @@ import parseMilliseconds from '../parse'
 const pluralize: any = (word: any, count: any) => count === 1 ? word : `${word}s`
 
 const SECOND_ROUNDING_EPSILON = 0.000_000_1
+const TRAILING_ZERO_DECIMALS = /\.0+$/
 
 export interface Options {
   /**
@@ -173,7 +174,7 @@ export default function conciseMilliseconds(milliseconds: number, options?: Opti
     const secondsFixed = floorDecimals(seconds, secondsDecimalDigits)
     const secondsString = options?.keepDecimalsOnWholeSeconds
       ? secondsFixed
-      : secondsFixed.replace(/\.0+$/, '')
+      : secondsFixed.replace(TRAILING_ZERO_DECIMALS, '')
     add(Number.parseFloat(secondsString), 'second', 's', secondsString)
   }
 
